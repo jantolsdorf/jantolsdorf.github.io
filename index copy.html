@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jan Tolsdorf</title>
+    <meta name="description" content="Jan Tolsdorf">
+    <meta name="author" content="Jan Tolsdorf @">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
+  <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="assets/js/bibtex-js.js"></script>
+  <bibtex src="bibliography.bib"></bibtex>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 p-3 bg-dark text-white bar text-end">
+            <div class="profile mt-5 me-4  position-fixed">
+            <h1>Jan Tolsdorf</h1>
+            <p class="small mt-5">Postdoctoral Associate (AI Fellow)<br/>The George Washington University</p>
+            <p></p>
+            <p class="small"><a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" id="emaillink" href="#">email me</a></p>
+        </div>
+        </div>
+        <div class="col-lg-8 p-3 content">
+            <div class="about mt-5">
+                <h2>About me</h2>
+                <p>I am a Postdoctoral Associate (AI Fellow) in the <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" href="https://gwusec.seas.gwu.edu/">Usable Security and Privacy Lab</a> at the George Washington University.</p> 
+                
+                <p>My research focus is on human factors in trustworthy Artificial Intelligence (AI), as well as on human centered information privacy and security. </p>
+
+                <p>My work contributes towards this problem space with insights gained using a mixture of qualitative and quantitative methods from human-computer interaction, software and requirements engineering, social sciences, psychology, and economics.</p>
+            </div>
+            <div class="publications mt-5">
+                <h2>Publications (selected)</h2>
+                <span class="small">Please find all work on <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" href="https://scholar.google.com/citations?hl=en&user=fyR4ujwAAAAJ">Google Scholar</a></span><p></p>
+                <div class="bibtex_template">
+                    <p>
+                    <div>
+                        <span class="author"></span>.
+                        <span class="fw-bold title"></span>.
+                        <span class="if journal">
+                            <span class="journal"></span>.
+                        </span>
+                        <span class="if booktitle">
+                            <span class="booktitle"></span>.
+                        </span>
+                        <span class="if year">
+                            <span class="year"></span>.
+                        </span>
+                    </div>
+                    
+                </p>
+                  </div>
+
+                <div id="bibtex_display">
+                    <div class="bibtex_structure">
+                        <div class="sort year" extra="DESC number">
+                              <div class="templates">
+                              </div>
+                          </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var fname = "jan";
+    var lname = "tolsdorf";
+    var domain = "gwu.edu";
+    var emaillink = document.getElementById("emaillink");
+    emaillink.text = `${fname}.${lname}@${domain}`;
+    emaillink.href = `mailto:${fname}.${lname}@${domain}`;
+</script>
+</html> 
