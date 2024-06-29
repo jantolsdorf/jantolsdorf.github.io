@@ -1,15 +1,37 @@
 @font-face {
-    font-family: "sinkin300";
-    src: url("../fonts/SINKIN\ SANS\ FAMILY/OTF/SinkinSans-300Light.otf");
-  }
+  font-family: "sinkin300";
+  src: url("../fonts/SINKIN\ SANS\ FAMILY/OTF/SinkinSans-300Light.otf");
+}
 
 body {
-    font-family: sinkin300, sans-serif;
+  font-family: sinkin300, sans-serif;
 }
 
-.content {
+.content {}
+
+.bar {}
+
+.profile {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.bar {
+.profile-item {
+  width: fit-content;
+}
 
+.profile-name {
+  width: min-content;
+}
+
+@media only screen and (max-width: 991px) {
+  .profile-item {
+    width: auto;
+    text-align: center;
+  }
+
+  .profile-name {
+    width: auto;
+  }
 }
