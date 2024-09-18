@@ -1,0 +1,49 @@
+<div class="profile mt-5">
+    <div class="row mt-5">
+        <div class="col-4 d-flex flex-wrap align-items-center">
+            <div class="text-center ">
+                <a class="link-light link-underline-opacity-0" href="/">
+                    <img src="/assets/images/jan.tolsdorf_hq rect.jpeg"
+                        alt="Profile picture Jan Tolsdorf" class="rounded img-fluid">
+                </a>
+            </div>
+        </div>
+        <div class="col-8">
+            <div>
+                <a class="link-light link-underline-opacity-0" href="/">
+                    <svg width="100%" height="100%" viewBox="0 0 340 170"
+                        preserveAspectRatio="xMinYMid meet" style="background-color:transparent"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <text x="0" y="75" font-size="75" fill="white">Jan</text>
+                        <text x="0" y="160" font-size="75" fill="white">Tolsdorf</text>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <p class="small profile-item mt-5">Postdoctoral Associate (AI Fellow)<br />The George Washington
+        University</p>
+    <p></p>
+    <p class="small profile-item"><a
+            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+            id="emaillink" href="#">email me</a></p>
+</div>
+<div class="mt-5">
+    <p>
+        <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+            href="/index.html#sec-publications">Publications</a>
+    </p>
+    <p>
+        <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+            href="/tools.html">Collection of tools</a>
+    </p>
+</div>
+
+<script>
+    var fname = "jan";
+    var lname = "tolsdorf";
+    var domain = "gwu.edu";
+    var emaillink = document.getElementById("emaillink");
+    emaillink.text = `${fname}.${lname}@${domain}`;
+    emaillink.href = `mailto:${fname}.${lname}@${domain}`;
+</script>
