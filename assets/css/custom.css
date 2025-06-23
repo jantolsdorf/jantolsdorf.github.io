@@ -1,10 +1,5 @@
-@font-face {
-  font-family: "sinkin300";
-  src: url("../fonts/SINKIN\ SANS\ FAMILY/OTF/SinkinSans-300Light.otf");
-}
-
 body {
-  font-family: sinkin300, sans-serif;
+  font-size: 18px;
 }
 
 .content {}
