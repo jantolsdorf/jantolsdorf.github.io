@@ -1,0 +1,128 @@
+.tooltips .tooltiptext {
+  font-size: small;
+  visibility: hidden;
+  width: auto;
+  background-color: #EEEEEE;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute !important;
+  z-index: 1000;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltips .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltips:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0s linear 1s;
+  overflow: visible !important;
+}
+
+.tooltip-arrow,
+.privacy-tooltip +.tooltip>.tooltip-inner {
+  background-color: #0d5c95;
+}
+
+/* [title]:hover:after {
+  opacity: 1;
+  transition: all 0.1s ease 0.5s;
+  visibility: visible;
+  z-index: 99999;
+}
+[title]:after {
+  content: attr(data-title);
+  background-color: #00FF00;
+  color: #111;
+  font-size: 150%;
+  position: absolute;
+  padding: 1px 5px 2px 5px;
+  bottom: -1.6em;
+  left: 100%;
+  white-space: nowrap;
+  box-shadow: 1px 1px 3px #222222;
+  opacity: 0;
+  border: 1px solid #111111;
+  z-index: 99999;
+  visibility: hidden;
+}
+[title] {
+  position: relative;
+} */
+
+/* .tooltips {
+  display:inline-block;
+  position:relative;
+  text-align:left;
+}
+
+.tooltips .tooltiptext {
+  min-width:200px; 
+  top:-20px;
+  left:50%;
+  transform:translate(-50%, -100%);
+  padding:10px 20px;
+  color:#444444;
+  background-color:#EEEEEE;
+  font-weight:normal;
+  font-size:13px;
+  border-radius:8px;
+  position:absolute;
+  z-index:99999999;
+  box-sizing:border-box;
+  box-shadow:0 1px 8px rgba(0,0,0,0.5);
+  visibility:hidden; opacity:0; transition:opacity 0.8s;
+}
+
+.tooltips:hover .tooltiptext {
+  visibility:visible; opacity:1;
+}
+
+.tooltips .tooltiptext i {
+  position:absolute;
+  top:100%;
+  left:50%;
+  margin-left:-12px;
+  width:24px;
+  height:12px;
+  overflow:hidden;
+}
+
+.tooltips .tooltiptext i::after {
+  content:'';
+  position:absolute;
+  width:12px;
+  height:12px;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(45deg);
+  background-color:#EEEEEE;
+  box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}*/
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-help {
+  cursor: help;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}

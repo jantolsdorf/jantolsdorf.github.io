@@ -1,0 +1,177 @@
+const ARIA_LABEL_CARD_CONTENT = "⁪⁪⁪‌​‍​‌‌‍​‌​​​‍‍‍‍​‌‌‍​‍​‍‍​‌​​‌‌​‌‌‍‌‍‍​‍‌⁪Card Content⁪⁪";
+const ARIA_ROLEDESCRIPTION_CARD = "⁪⁪⁪‍‌​​‍‍​‍​‌‍​‍​‍‍​‍‌​‌‌‌​​‌​​​‍‌‍‌​​‍‍​‍⁪Card⁪⁪";
+const ARIA_ROLEDESCRIPTION_CARD_HEADER = "⁪⁪⁪‌‌​‍‌‌‌‍​​‌‍​‌‌‌‍‍​‍‌​‌‌‍‍​‌‍‌‌​‌​​​‍‌‍​‌⁪Card Header⁪⁪";
+const ARIA_ROLEDESCRIPTION_INTERACTIVE_CARD_HEADER = "⁪⁪⁪‌​​​‍‍​​‌‌‌‌​‌​​‌‌‍‍‌‌​‌‌‍‌‌​‍​‌​‌‌​‍‍‍‌‌⁪Interactive Card Header⁪⁪";
+const AVATAR_TOOLTIP = "⁪⁪⁪‌​‍​‌‌‍‍​‌‍‍​​​‍​​‍‌​‌​​‌​​‌‍‍‌‌​​‌‌‍​‍‌⁪Avatar⁪⁪";
+const BADGE_DESCRIPTION = "⁪⁪⁪‌​‍‌​​‌‌‍‍​​​‍​‌​‍​‌‍‍​‌‍‌‍‌‌‍‍​‌​​​‍‍‍​​⁪Badge⁪⁪";
+const BUSY_INDICATOR_TITLE = "⁪⁪⁪‍‍‍‌‌‍​‌​​​‌‌‍‍‍‍‍‌‍‌‌‌​​​​‍‍‌​‌‌‍‍‌‌​‍‍⁪Please wait⁪⁪";
+const BUTTON_ARIA_TYPE_ACCEPT = "⁪⁪⁪‌‌‍​‌‌‍‍‌‍​‍‌‍​‍​‌‌‌‌‌‍‍​‍​​‌‌​​​‍​​‍‍‌​⁪Positive Action⁪⁪";
+const BUTTON_ARIA_TYPE_REJECT = "⁪⁪⁪‌‍‍​​​‍​‍‍​‍‍​​​‍‍‍​​‍‍​​‍​‌‍‍‌​​​‍​​​⁪Negative Action⁪⁪";
+const BUTTON_ARIA_TYPE_EMPHASIZED = "⁪⁪⁪‌​‍‍‍‍‌‌​​‍​​‌‍‌​‌‌‌‌‍‍​‍‍​‌‍‌‍​​‌​​‌‌⁪Emphasized⁪⁪";
+const CAROUSEL_OF_TEXT = "⁪⁪⁪‌‍‌​‍​‌​​‍‌​‌‍‍‍‌​‍‍‌​‍​‍​‌​‍‌​‍​‍​​‍​‌‍⁪of⁪⁪";
+const CAROUSEL_DOT_TEXT = "⁪⁪⁪‍‍​​‌​‍‍‍‍‍‌‍​‌‍‌‌‍​​‌​‍‌‍​‌‍​‌​​‌​​​​‍⁪Item {0} of {1} displayed⁪⁪";
+const CAROUSEL_PREVIOUS_ARROW_TEXT = "⁪⁪⁪‌‌​‌​‌‌​​‍‍‍​​‍‌‌​​‌‍‍‍‌‌‍‍‌​‍‌‍​‍‍‍‌​‍‌​⁪Previous Page⁪⁪";
+const CAROUSEL_NEXT_ARROW_TEXT = "⁪⁪⁪‌​‌‌​‍‌‍​‌‌‌‌‍‌​​​‌‌‍​​‌‍​​​‌‍​​‌‌​‌‍​​‌‍⁪Next Page⁪⁪";
+const COLORPALETTE_CONTAINER_LABEL = "⁪⁪⁪‌​​‍​​​​‍​‌‌‍‌‌‍​‌‌​‌‌​​‍​‍‌‍‍​‍‍‍‌‌‌‌⁪Color palette - Predefined colors⁪⁪";
+const COLORPALETTE_COLOR_LABEL = "⁪⁪⁪‍​‍​‍‌​‍‍​​​‌​‌‌​‌​​‍‌‍​​‍‌‌‌‌‍‍‍​‌​‍‍‍‌⁪Color⁪⁪";
+const COLOR_PALETTE_DIALOG_CANCEL_BUTTON = "⁪⁪⁪‌​​‌‌‍​​‌‌‌‍‍​‍​‍​​​‍​‍‌‍‌‌​​​​‌‍‍‍‌‌‍‍​‌⁪Cancel⁪⁪";
+const COLOR_PALETTE_DIALOG_OK_BUTTON = "⁪⁪⁪‌‌​​‍‌​​‍​​‌‌​​‍‍‍​​‍‍‍‍​‍‍‍‍‍​‌‍‍‌​​​‌​‍⁪OK⁪⁪";
+const COLOR_PALETTE_DIALOG_TITLE = "⁪⁪⁪‌​​​​​​​‍​‍​‌‌‍‌​‍‌‍‌‌​​​​‌​‌​‍‌‌​‍‌‍‌​​⁪Change Color⁪⁪";
+const COLOR_PALETTE_MORE_COLORS_TEXT = "⁪⁪⁪‌‍​‍‌‍‍‌​‌‍‌‌‍‍‌‍‍‍​‍​‍​‍‍‌‍​‍‌‌‌‌‍‍‌‍‍‍⁪More Colors...⁪⁪";
+const DATEPICKER_OPEN_ICON_TITLE = "⁪⁪⁪‍​‌‌​​‌‌‌‌​‍‌​‍​‍‌‍‌‍‍‍​​​​‍​​‌​‌‌​‍​​‍​⁪Open Picker⁪⁪";
+const DATEPICKER_DATE_DESCRIPTION = "⁪⁪⁪‌​‍​​‍​‌‌‍​‌‍‍‍‌‍​​‍​‌‌‍‌‍​​‌​​‍‍‍‍‍​‌‌‌⁪Date Input⁪⁪";
+const DELETE = "⁪⁪⁪‍‌‌​‍‍‌‍‍‍‍‌‍‍‍‌‍‌‌‌‍‍‌​‌​‌​‍‌​‍‌‌‌‍‍‌‌‍⁪Delete⁪⁪";
+const FILEUPLOAD_BROWSE = "⁪⁪⁪‌​​‌‍‍​‍‌‌‌​‌​​‍‍​‌‍‌‌‌‌​‌‌​‌‍‌​‌‌​‍‌​‌​​⁪Browse...⁪⁪";
+const FILEUPLOADER_TITLE = "⁪⁪⁪‌​‌‌‌‍‌‍‍‍‍‍‌​​‍‍​‍‌‌​​​​‌​‍‌​‌​‌‌​‌‌​​​‌⁪Upload File⁪⁪";
+const GROUP_HEADER_TEXT = "⁪⁪⁪‍‌‌‍‌‌‌‌‌​‍​‌​​‍‌‌‌​‌‍​​‍‌‌​‍‌‌​​​​‌‌‍​‌⁪Group Header⁪⁪";
+const SELECT_OPTIONS = "⁪⁪⁪‌‍‍‍‌‌‍‍‌‌‌‌‍‌‍‌​​​​‍‍‌‌​‍​‌‌‍‌‍​‍​​‌​​⁪Select Options⁪⁪";
+const INPUT_SUGGESTIONS = "⁪⁪⁪‍​‍​​‌‍‌‍‌‍‌‍‍​​‌​​‌​‌‍​​‍‌‍​​‍​​‌‍‌‌​​‌⁪Suggestions available⁪⁪";
+const INPUT_SUGGESTIONS_TITLE = "⁪⁪⁪‌​​‍​‌‌​‍‌​‌‌‍​‌‌‌‌‍​‍​‍‍‌​​​‌‌‌‍‍‌​‌​​‍‌⁪Select⁪⁪";
+const INPUT_SUGGESTIONS_ONE_HIT = "⁪⁪⁪‍‍‌​‍‌‍​‍‌​‍​​‍‍​‍​​‌‍​​‌‍‌‍‌​‍‌‍​​‌‌‌‌‍⁪1 result available⁪⁪";
+const INPUT_SUGGESTIONS_MORE_HITS = "⁪⁪⁪‌‍‍​​‍‌‍​‍​‌‌‌‍‍​‍‍‍‌‌‌‍‌‍​‌​‍​‌​‌​‌‌‌‍​⁪{0} results are available⁪⁪";
+const INPUT_SUGGESTIONS_NO_HIT = "⁪⁪⁪‌‌‌​‌​‌‍‌‌‌‍​‍​‌‌‌‍​‌​‌‌‍‌‍‌‍​‍​‌‌‌​‍‍‍‍​⁪No results⁪⁪";
+const LINK_SUBTLE = "⁪⁪⁪‌​​​‌​‌‌​‌​‍‍​‍‍‍‍‌​‍​‌‍​​​​​‍‍‍‌​‌​‌​‌‍‌⁪Subtle⁪⁪";
+const LINK_EMPHASIZED = "⁪⁪⁪‌​‌‍​‍​‍‍‍​​‌​‌‌​‌‍​‍‍‍‍​‍‍‍​‍‍‍‌​‍‍​‍‌‌‍⁪Emphasized⁪⁪";
+const LIST_ITEM_POSITION = "⁪⁪⁪‌​‍‌‍‌​‌​​‌‍​‍‍‍‌‌​​‍‍​‌‌​‍‌‌‍​​​​‌​‌‍‍‍​⁪List item {0} of {1}⁪⁪";
+const LIST_ITEM_SELECTED = "⁪⁪⁪‌​​‌‌‌‌‌‍‍​‌​‍​​‍‌​‍​​‌​​‍​‍​​‍‍‌‍​‍‍‌​​‍⁪Selected⁪⁪";
+const ARIA_LABEL_LIST_ITEM_CHECKBOX = "⁪⁪⁪‍‍‌‌‍​‌‌‍​‍​​​‍‌‍​​​​​​‍‍‌‌​​‌​‍‌​‍‍‌‌‍‌⁪Multiple Selection mode.⁪⁪";
+const MESSAGE_STRIP_CLOSE_BUTTON = "⁪⁪⁪‍‍​‌‍‌‍​‌​‌‌‍​‍​​‍‍‌‌‍‍​‌‍‌‌‌‌​‌‌​‌‍​‌‍‌⁪Message Strip Close⁪⁪";
+const MULTICOMBOBOX_DIALOG_OK_BUTTON = "⁪⁪⁪‌​‍‍‌‌‌​‌​‍‌‌‍‌​​‍‌‌​‍‍‌‌‍‍‌​‌​​‍​​‌​​​‍‍⁪OK⁪⁪";
+const MULTIINPUT_ROLEDESCRIPTION_TEXT = "⁪⁪⁪‍‌​‍​​‍‍‍‌‌​‍‌‍​​‌​‍‍​‌​​​‌​​‌​​‌‍​​‍​​‌⁪Multi Value Input⁪⁪";
+const MULTIINPUT_SHOW_MORE_TOKENS = "⁪⁪⁪‌​‍​​​‌​‌​‌‌‌‍​‍‍‍‌‍‌​‍‍‌‌‌‌‍​‍‌‍​​‌‍​‍‍‌⁪{0} More⁪⁪";
+const PANEL_ICON = "⁪⁪⁪‍​‌‍​‌‌​‌​​‍‌‌‍‌​‌​‍‍​‌‌‍‍​‍​​‌‌‌​​‌‍‍‌‌⁪Expand/Collapse⁪⁪";
+const RANGE_SLIDER_ARIA_DESCRIPTION = "⁪⁪⁪‍‍‍‍‌‍‍‍‌​‌‍‍​‌​​​‌‍‍‍‌‌​‍​​‍​‍​‌​‌‍​‌‌⁪Range⁪⁪";
+const RANGE_SLIDER_START_HANDLE_DESCRIPTION = "⁪⁪⁪‌‍‌‌‍​‌‌​‍‌​​‍‌​‌‌‍‌​‌​‍​‍​‍​‍‌‍‍‍‌‌‍‍‌‌⁪Left handle⁪⁪";
+const RANGE_SLIDER_END_HANDLE_DESCRIPTION = "⁪⁪⁪‌‍​‍‌‍​​‍‌‌‍​‍​​‍‍‌‍‌‍‍​‌‌‍‌​‌​‍‌​​​​​⁪Right handle⁪⁪";
+const RATING_INDICATOR_TOOLTIP_TEXT = "⁪⁪⁪‌​‍‍​‍‍‌​‌‍‌‍​​‌‌​​‌‍‌‍‍‌‌​​‍‍‌‍‌‌‌‌​‌​‌‍⁪Rating⁪⁪";
+const RATING_INDICATOR_TEXT = "⁪⁪⁪‌​‌‍‍​‌‍‌‌​‌‌‌‌‌​‍‌‌‌​‍‍‍‌‌‌‌‌‌​‌​‍‍‍‍‌​⁪Rating Indicator⁪⁪";
+const RESPONSIVE_POPOVER_CLOSE_DIALOG_BUTTON = "⁪⁪⁪‌‌‍​‍​‍​‌​‌‌‍‌‌​‌​‌‌‍​‌​​​​‍‍‍​‍‍‌‍‌‌‌‌​⁪Decline⁪⁪";
+const SEGMENTEDBUTTON_ARIA_DESCRIPTION = "⁪⁪⁪‌​‍‍‌​‍‍​‌‌‌‍‍‍‌‍‍‍‍‌​​​​‍​‍‍‍‌‍‍‌‌‍‌​‌​‌⁪Segmented button⁪⁪";
+const SLIDER_ARIA_DESCRIPTION = "⁪⁪⁪‌​‍​‍‌‍​‍‌​‍‌‍‍​‍​‍​‍‌‍‌​‍‌‍‍‌‌‌‌‌‍‌‌‌‍‌⁪Slider handle⁪⁪";
+const SWITCH_ON = "⁪⁪⁪‍‌‌‌‍‌​‌‍​‌‍‍‍‌‍​‍​​​‍‌‍‍‍‍‍‍‍‌‍‌‍​‍‍​​⁪On⁪⁪";
+const SWITCH_OFF = "⁪⁪⁪‌​​‍​​‌​‌‍‌‌​​​‌​​​‍‌​‍‍​‍​​‍‌​‍​‍‌​​​‌‌‌⁪Off⁪⁪";
+const LOAD_MORE_TEXT = "⁪⁪⁪‌‌‌‌‍‌‌‍‌​‌‍​‍‌​‌‍​‍​‌​‌‌‌‌​‌‍​‌‌‍​‍‌‌‍​‍⁪More⁪⁪";
+const TABCONTAINER_NEXT_ICON_ACC_NAME = "⁪⁪⁪‍‌‌‍‌‌‍‌‌‍‍‌​‌​​​‌‌‌‌‌‍‍‍​‍‍‌‍‍‍‍‌‌​‌‌‍​⁪Next⁪⁪";
+const TABCONTAINER_PREVIOUS_ICON_ACC_NAME = "⁪⁪⁪‌‌‌‌‌‍​‌‌‍‍‌‍‌‌‍​‌​‌​‍‌​‌‍​​​‍​‍‌​​‍‌​‍​​⁪Previous⁪⁪";
+const TABCONTAINER_OVERFLOW_MENU_TITLE = "⁪⁪⁪‌‍‍‍‌‌​‌‍‌‌‌​​‌‍‍‍​‌‌‍​‍‍​​‍​​‌‌‌‍​‍​​‌⁪Overflow Menu⁪⁪";
+const TEXTAREA_CHARACTERS_LEFT = "⁪⁪⁪‌​‍‌‌‍‍​‍​​‍‍‍​​‌​​‍​​‍​​‍‌​‍‌‌‌‍​‌‌​‍​‍⁪{0} characters remaining⁪⁪";
+const TEXTAREA_CHARACTERS_EXCEEDED = "⁪⁪⁪‍‍‍‌​‌‍‌‍‌​‍‍‍​‌‍‍‍‍‌‍​‌‌‌‍‍‍​‍‍‍​‌​‌‌​​⁪{0} characters over limit⁪⁪";
+const TIMEPICKER_HOURS_LABEL = "⁪⁪⁪‌​‍​‌‍​​​‍‌​​​‌‌​‌‌‍‌‌‍​‍‌‍‍‌‍​‍‌‍​​‍​‌‌⁪Hours⁪⁪";
+const TIMEPICKER_MINUTES_LABEL = "⁪⁪⁪‌‍‍​‍​‍‌​‍​​‍‌​‍‍​‌‌‌​‍​​​​‌‌‍​‍​‍‌​​​​⁪Minutes⁪⁪";
+const TIMEPICKER_SECONDS_LABEL = "⁪⁪⁪‌​‌​‍‍‌​‌‍​‍‍‍‍‌​​‌​‌‌‌​‌‍‍‌‍‍‍‌​‌​​‍​‌​‍⁪Seconds⁪⁪";
+const TIMEPICKER_PERIODS_LABEL = "⁪⁪⁪‌​​‌‍‍‌‌‌‌‍​‍​‌​​‍‍‌‌‌​‌‍‍​‌‌​‍​‌‍‍​‌‍‌‌​⁪AM/PM⁪⁪";
+const TIMEPICKER_SUBMIT_BUTTON = "⁪⁪⁪‌​​‌​‌​‍‌‌​‌‌​‌​​​​‍‍‌‌‍​‍‍‍‍‌‌‌‌‍‌​‍​​⁪OK⁪⁪";
+const TIMEPICKER_CANCEL_BUTTON = "⁪⁪⁪‍‌‍‍‍‍​​​​‌‍​‌‌‌‌‍​​‌‍‍‌​‍‍‍​‍‍​‌​‍‍​‌​‍⁪Cancel⁪⁪";
+const DATETIME_PICKER_DATE_BUTTON = "⁪⁪⁪‌‌‌‌​‌‍‌‌​‍‍‍‌‌‌​‌​‍‍‌‍​‍​‌‍‍‌‍‌‌‍‌‌‌​‌​‍⁪Date⁪⁪";
+const DATETIME_PICKER_TIME_BUTTON = "⁪⁪⁪‌​‌‍‌‌‍​​​‍‌​‌‍​‌​​‍​​‍​‌‌‌‍‍‍‍​‌‍‍​​‍‍‌​⁪Time⁪⁪";
+const TOKEN_ARIA_DELETABLE = "⁪⁪⁪‌​​‍‍‌​​​‌‌​‌​‍‍‌​‍‍‍‍‌‍​‌‌​‌‌‌​‌‌‌‌‍‌‌​​⁪Deletable⁪⁪";
+const TOKENIZER_ARIA_CONTAIN_TOKEN = "⁪⁪⁪‌‍‍​‍‍‌​‍​​‍‍‍‌​‍‌‍‍​​‌‍‍‌‌‌‍‍‍‌‌‌‍​‍​‍‌⁪No Tokens⁪⁪";
+const TOKENIZER_ARIA_CONTAIN_ONE_TOKEN = "⁪⁪⁪‌‌‍‌‍‍‌‍​‌‌‌​​‌‍‍‌​‍‌‍​​‌‍‌‍​‌‌‍‌​​​​‍‍​⁪Contains 1 token⁪⁪";
+const TOKENIZER_ARIA_CONTAIN_SEVERAL_TOKENS = "⁪⁪⁪‍‌​​‍‌‌‌‍‌‌‍​‌​‌‌‌‍‌‍‍‍‍‌‌‌​‍​‍‌‍​​‌‍‍​‌⁪Contains {0} tokens⁪⁪";
+const TOKENIZER_ARIA_LABEL = "⁪⁪⁪‌‌​‍​​​‌‍‌​‌‍​‍​​​‌‍‍​​​​‌‌‌‌‍‌‌‌‌‌‍‌​​‌‌⁪Tokenizer⁪⁪";
+const TOKENIZER_POPOVER_REMOVE = "⁪⁪⁪‌‌‍​‌​‍​‍​‌‌​‍‌​​​‍‌​​​‌​​‍​‌​‌‍‍‍‌‌‌‍‍⁪Remove⁪⁪";
+const TREE_ITEM_ARIA_LABEL = "⁪⁪⁪‌‍​​​‍​​‌‍‌‍‌​‍​‌‍​‌‌‌​‍‌​‌‌‌​‌‍‍‌​‌​​‌⁪Tree Item⁪⁪";
+const TREE_ITEM_EXPAND_NODE = "⁪⁪⁪‌‌​‌‌‍‌​​‍‌‍‌‍​‍‌‌‌‍​​‌​‍​‌‌‌​‍‍​‍​‍​‍‍‍‌⁪Expand Node⁪⁪";
+const TREE_ITEM_COLLAPSE_NODE = "⁪⁪⁪‌‌​‌‍​‍‍‍‌‍‍‌​‍​​​‌‌‍‌‍​‍‍​‌‍‌​​​‍‍​‌​​‍‍⁪Collapse Node⁪⁪";
+const VALUE_STATE_ERROR = "⁪⁪⁪‍‍​​​​‌​​‌‌​‌​‍‌​‍‍​‌​‌​‌​​‌​‌‍‍‍‍‍‌‌‍‌‍⁪Invalid entry⁪⁪";
+const VALUE_STATE_WARNING = "⁪⁪⁪‍‍‍‌‌‌‌‍​‌‍​‍‍​‍‍‍​​‌​‌‌‌​​​‌‍‌‍​​​‍‌‌‌‌⁪Warning issued⁪⁪";
+const VALUE_STATE_INFORMATION = "⁪⁪⁪‍​​‍‌‍​‌​‌‌‍‍‌​‌​‍​‌‍‌‍​​​‍‌‌​‌‌​​​‍​‍‍‌⁪Informative entry⁪⁪";
+const VALUE_STATE_SUCCESS = "⁪⁪⁪‌​‌‌​‍‌​​‌‍‌​​‌​‍‍​‌‌‌‌‍‌​​‌‌‍‌​​‍‌‍‌‌‌​⁪Entry successfully validated⁪⁪";
+const CALENDAR_HEADER_NEXT_BUTTON = "⁪⁪⁪‌‌‍​‌‌‍‍‍‌​‌​‍‌​‌‌​‌​‌‌‍​‌‍‍‌‌‍‌‍‍‍‌​​​‍⁪Next⁪⁪";
+const CALENDAR_HEADER_PREVIOUS_BUTTON = "⁪⁪⁪‌​‍​‍‌​​​​‌‌​‌‌‌‍‌‍‍‍‍​‍‍‍‌‍‌‍‍‍‍‍‌‌‌​‌‌‌⁪Previous⁪⁪";
+const DAY_PICKER_WEEK_NUMBER_TEXT = "⁪⁪⁪‌​​‌‌‍​‌‍‍​​​​​​​‌​​‌​​‌​‌​‍​‍‍‍​​‌​​‌​‍⁪Week number⁪⁪";
+const DAY_PICKER_NON_WORKING_DAY = "⁪⁪⁪‌‌‌‌‌‌‍‍‌‍​​​‍‌‍​​‍‍‍‌‌‍​‍​‍​​‌‌‌‌‍‍​‌‍​‌⁪Non-Working Day⁪⁪";
+const DAY_PICKER_TODAY = "⁪⁪⁪‍‍‍‌​‌​‌​‍‍‌​‌‌​‍‌‌​‍‌​‍‍‌​​‌‍​​‌‌‍‌‌​​⁪Today⁪⁪";
+const STEPINPUT_DEC_ICON_TITLE = "⁪⁪⁪‌​​‍‍‌​‍​‍​‌​‌‍‍​​​‍‍‌‌‌‍​​​‌​‌‍‍‍‌‌‍‌‌‌⁪Decrease⁪⁪";
+const STEPINPUT_INC_ICON_TITLE = "⁪⁪⁪‌​‌‌​‍​‍​‌‍‌​​‌‍‍‌‍‌‌‍​‌‌​​‍‌​​​‌‌‌‌‌​‍‍⁪Increase⁪⁪";
+const messagebundle_en_US_saprigi = {
+	ARIA_LABEL_CARD_CONTENT: ARIA_LABEL_CARD_CONTENT,
+	ARIA_ROLEDESCRIPTION_CARD: ARIA_ROLEDESCRIPTION_CARD,
+	ARIA_ROLEDESCRIPTION_CARD_HEADER: ARIA_ROLEDESCRIPTION_CARD_HEADER,
+	ARIA_ROLEDESCRIPTION_INTERACTIVE_CARD_HEADER: ARIA_ROLEDESCRIPTION_INTERACTIVE_CARD_HEADER,
+	AVATAR_TOOLTIP: AVATAR_TOOLTIP,
+	BADGE_DESCRIPTION: BADGE_DESCRIPTION,
+	BUSY_INDICATOR_TITLE: BUSY_INDICATOR_TITLE,
+	BUTTON_ARIA_TYPE_ACCEPT: BUTTON_ARIA_TYPE_ACCEPT,
+	BUTTON_ARIA_TYPE_REJECT: BUTTON_ARIA_TYPE_REJECT,
+	BUTTON_ARIA_TYPE_EMPHASIZED: BUTTON_ARIA_TYPE_EMPHASIZED,
+	CAROUSEL_OF_TEXT: CAROUSEL_OF_TEXT,
+	CAROUSEL_DOT_TEXT: CAROUSEL_DOT_TEXT,
+	CAROUSEL_PREVIOUS_ARROW_TEXT: CAROUSEL_PREVIOUS_ARROW_TEXT,
+	CAROUSEL_NEXT_ARROW_TEXT: CAROUSEL_NEXT_ARROW_TEXT,
+	COLORPALETTE_CONTAINER_LABEL: COLORPALETTE_CONTAINER_LABEL,
+	COLORPALETTE_COLOR_LABEL: COLORPALETTE_COLOR_LABEL,
+	COLOR_PALETTE_DIALOG_CANCEL_BUTTON: COLOR_PALETTE_DIALOG_CANCEL_BUTTON,
+	COLOR_PALETTE_DIALOG_OK_BUTTON: COLOR_PALETTE_DIALOG_OK_BUTTON,
+	COLOR_PALETTE_DIALOG_TITLE: COLOR_PALETTE_DIALOG_TITLE,
+	COLOR_PALETTE_MORE_COLORS_TEXT: COLOR_PALETTE_MORE_COLORS_TEXT,
+	DATEPICKER_OPEN_ICON_TITLE: DATEPICKER_OPEN_ICON_TITLE,
+	DATEPICKER_DATE_DESCRIPTION: DATEPICKER_DATE_DESCRIPTION,
+	DELETE: DELETE,
+	FILEUPLOAD_BROWSE: FILEUPLOAD_BROWSE,
+	FILEUPLOADER_TITLE: FILEUPLOADER_TITLE,
+	GROUP_HEADER_TEXT: GROUP_HEADER_TEXT,
+	SELECT_OPTIONS: SELECT_OPTIONS,
+	INPUT_SUGGESTIONS: INPUT_SUGGESTIONS,
+	INPUT_SUGGESTIONS_TITLE: INPUT_SUGGESTIONS_TITLE,
+	INPUT_SUGGESTIONS_ONE_HIT: INPUT_SUGGESTIONS_ONE_HIT,
+	INPUT_SUGGESTIONS_MORE_HITS: INPUT_SUGGESTIONS_MORE_HITS,
+	INPUT_SUGGESTIONS_NO_HIT: INPUT_SUGGESTIONS_NO_HIT,
+	LINK_SUBTLE: LINK_SUBTLE,
+	LINK_EMPHASIZED: LINK_EMPHASIZED,
+	LIST_ITEM_POSITION: LIST_ITEM_POSITION,
+	LIST_ITEM_SELECTED: LIST_ITEM_SELECTED,
+	ARIA_LABEL_LIST_ITEM_CHECKBOX: ARIA_LABEL_LIST_ITEM_CHECKBOX,
+	MESSAGE_STRIP_CLOSE_BUTTON: MESSAGE_STRIP_CLOSE_BUTTON,
+	MULTICOMBOBOX_DIALOG_OK_BUTTON: MULTICOMBOBOX_DIALOG_OK_BUTTON,
+	MULTIINPUT_ROLEDESCRIPTION_TEXT: MULTIINPUT_ROLEDESCRIPTION_TEXT,
+	MULTIINPUT_SHOW_MORE_TOKENS: MULTIINPUT_SHOW_MORE_TOKENS,
+	PANEL_ICON: PANEL_ICON,
+	RANGE_SLIDER_ARIA_DESCRIPTION: RANGE_SLIDER_ARIA_DESCRIPTION,
+	RANGE_SLIDER_START_HANDLE_DESCRIPTION: RANGE_SLIDER_START_HANDLE_DESCRIPTION,
+	RANGE_SLIDER_END_HANDLE_DESCRIPTION: RANGE_SLIDER_END_HANDLE_DESCRIPTION,
+	RATING_INDICATOR_TOOLTIP_TEXT: RATING_INDICATOR_TOOLTIP_TEXT,
+	RATING_INDICATOR_TEXT: RATING_INDICATOR_TEXT,
+	RESPONSIVE_POPOVER_CLOSE_DIALOG_BUTTON: RESPONSIVE_POPOVER_CLOSE_DIALOG_BUTTON,
+	SEGMENTEDBUTTON_ARIA_DESCRIPTION: SEGMENTEDBUTTON_ARIA_DESCRIPTION,
+	SLIDER_ARIA_DESCRIPTION: SLIDER_ARIA_DESCRIPTION,
+	SWITCH_ON: SWITCH_ON,
+	SWITCH_OFF: SWITCH_OFF,
+	LOAD_MORE_TEXT: LOAD_MORE_TEXT,
+	TABCONTAINER_NEXT_ICON_ACC_NAME: TABCONTAINER_NEXT_ICON_ACC_NAME,
+	TABCONTAINER_PREVIOUS_ICON_ACC_NAME: TABCONTAINER_PREVIOUS_ICON_ACC_NAME,
+	TABCONTAINER_OVERFLOW_MENU_TITLE: TABCONTAINER_OVERFLOW_MENU_TITLE,
+	TEXTAREA_CHARACTERS_LEFT: TEXTAREA_CHARACTERS_LEFT,
+	TEXTAREA_CHARACTERS_EXCEEDED: TEXTAREA_CHARACTERS_EXCEEDED,
+	TIMEPICKER_HOURS_LABEL: TIMEPICKER_HOURS_LABEL,
+	TIMEPICKER_MINUTES_LABEL: TIMEPICKER_MINUTES_LABEL,
+	TIMEPICKER_SECONDS_LABEL: TIMEPICKER_SECONDS_LABEL,
+	TIMEPICKER_PERIODS_LABEL: TIMEPICKER_PERIODS_LABEL,
+	TIMEPICKER_SUBMIT_BUTTON: TIMEPICKER_SUBMIT_BUTTON,
+	TIMEPICKER_CANCEL_BUTTON: TIMEPICKER_CANCEL_BUTTON,
+	DATETIME_PICKER_DATE_BUTTON: DATETIME_PICKER_DATE_BUTTON,
+	DATETIME_PICKER_TIME_BUTTON: DATETIME_PICKER_TIME_BUTTON,
+	TOKEN_ARIA_DELETABLE: TOKEN_ARIA_DELETABLE,
+	TOKENIZER_ARIA_CONTAIN_TOKEN: TOKENIZER_ARIA_CONTAIN_TOKEN,
+	TOKENIZER_ARIA_CONTAIN_ONE_TOKEN: TOKENIZER_ARIA_CONTAIN_ONE_TOKEN,
+	TOKENIZER_ARIA_CONTAIN_SEVERAL_TOKENS: TOKENIZER_ARIA_CONTAIN_SEVERAL_TOKENS,
+	TOKENIZER_ARIA_LABEL: TOKENIZER_ARIA_LABEL,
+	TOKENIZER_POPOVER_REMOVE: TOKENIZER_POPOVER_REMOVE,
+	TREE_ITEM_ARIA_LABEL: TREE_ITEM_ARIA_LABEL,
+	TREE_ITEM_EXPAND_NODE: TREE_ITEM_EXPAND_NODE,
+	TREE_ITEM_COLLAPSE_NODE: TREE_ITEM_COLLAPSE_NODE,
+	VALUE_STATE_ERROR: VALUE_STATE_ERROR,
+	VALUE_STATE_WARNING: VALUE_STATE_WARNING,
+	VALUE_STATE_INFORMATION: VALUE_STATE_INFORMATION,
+	VALUE_STATE_SUCCESS: VALUE_STATE_SUCCESS,
+	CALENDAR_HEADER_NEXT_BUTTON: CALENDAR_HEADER_NEXT_BUTTON,
+	CALENDAR_HEADER_PREVIOUS_BUTTON: CALENDAR_HEADER_PREVIOUS_BUTTON,
+	DAY_PICKER_WEEK_NUMBER_TEXT: DAY_PICKER_WEEK_NUMBER_TEXT,
+	DAY_PICKER_NON_WORKING_DAY: DAY_PICKER_NON_WORKING_DAY,
+	DAY_PICKER_TODAY: DAY_PICKER_TODAY,
+	STEPINPUT_DEC_ICON_TITLE: STEPINPUT_DEC_ICON_TITLE,
+	STEPINPUT_INC_ICON_TITLE: STEPINPUT_INC_ICON_TITLE
+};
+
+export default messagebundle_en_US_saprigi;
+export { ARIA_LABEL_CARD_CONTENT, ARIA_LABEL_LIST_ITEM_CHECKBOX, ARIA_ROLEDESCRIPTION_CARD, ARIA_ROLEDESCRIPTION_CARD_HEADER, ARIA_ROLEDESCRIPTION_INTERACTIVE_CARD_HEADER, AVATAR_TOOLTIP, BADGE_DESCRIPTION, BUSY_INDICATOR_TITLE, BUTTON_ARIA_TYPE_ACCEPT, BUTTON_ARIA_TYPE_EMPHASIZED, BUTTON_ARIA_TYPE_REJECT, CALENDAR_HEADER_NEXT_BUTTON, CALENDAR_HEADER_PREVIOUS_BUTTON, CAROUSEL_DOT_TEXT, CAROUSEL_NEXT_ARROW_TEXT, CAROUSEL_OF_TEXT, CAROUSEL_PREVIOUS_ARROW_TEXT, COLORPALETTE_COLOR_LABEL, COLORPALETTE_CONTAINER_LABEL, COLOR_PALETTE_DIALOG_CANCEL_BUTTON, COLOR_PALETTE_DIALOG_OK_BUTTON, COLOR_PALETTE_DIALOG_TITLE, COLOR_PALETTE_MORE_COLORS_TEXT, DATEPICKER_DATE_DESCRIPTION, DATEPICKER_OPEN_ICON_TITLE, DATETIME_PICKER_DATE_BUTTON, DATETIME_PICKER_TIME_BUTTON, DAY_PICKER_NON_WORKING_DAY, DAY_PICKER_TODAY, DAY_PICKER_WEEK_NUMBER_TEXT, DELETE, FILEUPLOADER_TITLE, FILEUPLOAD_BROWSE, GROUP_HEADER_TEXT, INPUT_SUGGESTIONS, INPUT_SUGGESTIONS_MORE_HITS, INPUT_SUGGESTIONS_NO_HIT, INPUT_SUGGESTIONS_ONE_HIT, INPUT_SUGGESTIONS_TITLE, LINK_EMPHASIZED, LINK_SUBTLE, LIST_ITEM_POSITION, LIST_ITEM_SELECTED, LOAD_MORE_TEXT, MESSAGE_STRIP_CLOSE_BUTTON, MULTICOMBOBOX_DIALOG_OK_BUTTON, MULTIINPUT_ROLEDESCRIPTION_TEXT, MULTIINPUT_SHOW_MORE_TOKENS, PANEL_ICON, RANGE_SLIDER_ARIA_DESCRIPTION, RANGE_SLIDER_END_HANDLE_DESCRIPTION, RANGE_SLIDER_START_HANDLE_DESCRIPTION, RATING_INDICATOR_TEXT, RATING_INDICATOR_TOOLTIP_TEXT, RESPONSIVE_POPOVER_CLOSE_DIALOG_BUTTON, SEGMENTEDBUTTON_ARIA_DESCRIPTION, SELECT_OPTIONS, SLIDER_ARIA_DESCRIPTION, STEPINPUT_DEC_ICON_TITLE, STEPINPUT_INC_ICON_TITLE, SWITCH_OFF, SWITCH_ON, TABCONTAINER_NEXT_ICON_ACC_NAME, TABCONTAINER_OVERFLOW_MENU_TITLE, TABCONTAINER_PREVIOUS_ICON_ACC_NAME, TEXTAREA_CHARACTERS_EXCEEDED, TEXTAREA_CHARACTERS_LEFT, TIMEPICKER_CANCEL_BUTTON, TIMEPICKER_HOURS_LABEL, TIMEPICKER_MINUTES_LABEL, TIMEPICKER_PERIODS_LABEL, TIMEPICKER_SECONDS_LABEL, TIMEPICKER_SUBMIT_BUTTON, TOKENIZER_ARIA_CONTAIN_ONE_TOKEN, TOKENIZER_ARIA_CONTAIN_SEVERAL_TOKENS, TOKENIZER_ARIA_CONTAIN_TOKEN, TOKENIZER_ARIA_LABEL, TOKENIZER_POPOVER_REMOVE, TOKEN_ARIA_DELETABLE, TREE_ITEM_ARIA_LABEL, TREE_ITEM_COLLAPSE_NODE, TREE_ITEM_EXPAND_NODE, VALUE_STATE_ERROR, VALUE_STATE_INFORMATION, VALUE_STATE_SUCCESS, VALUE_STATE_WARNING };
