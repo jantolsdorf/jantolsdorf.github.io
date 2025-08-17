@@ -1,0 +1,1 @@
+import{D as r}from"./p-76a5b83d.js";const n={None:"None",Success:"Success",Warning:"Warning",Error:"Error",Information:"Information"};class s extends r{static isValid(r){return!!n[r]}}s.generateTypeAccessors(n);export{s as V}

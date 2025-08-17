@@ -1,0 +1,1 @@
+import{v as s}from"./p-6ac8576c.js";class t{constructor(t,c){this.id=s(),this.person=t,this.pii=c}}export{t as V}
