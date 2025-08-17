@@ -22,16 +22,7 @@
 
 <body> <trusd-piiq-com-app-root base-url="/data-cart"
     host-base-path="https://jantolsdorf.de/data-cart"></trusd-piiq-com-app-root>
-  <script>
-    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-      // auto-unregister service worker during dev mode
-      navigator.serviceWorker.getRegistration().then(function (registration) {
-        if (registration) {
-          registration.unregister().then(function () { location.reload(true) });
-        }
-      });
-    }
-  </script>
+    <script src="/data-cart/assets/js/sw-unregister.js"></script>
 </body>
 
 </html>
