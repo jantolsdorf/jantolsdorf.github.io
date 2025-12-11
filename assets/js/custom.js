@@ -1,4 +1,3 @@
-debugger
 function updateMediaList(ul) {
     const mediaString = ul.getAttribute('data-media')?.trim() || "";
 
