@@ -36,3 +36,12 @@ body {
     width: auto;
   }
 }
+
+.pub-indent {
+    margin-left: 12px;
+    font-weight: lighter;
+}
+
+.title {
+  font-weight: normal;
+}
