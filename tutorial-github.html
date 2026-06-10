@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jan Tolsdorf</title>
+    <meta name="description" content="Jan Tolsdorf">
+    <meta name="author" content="Jan Tolsdorf @">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="assets/js/bibtex-js.js"></script>
+    <bibtex src="bibliography.bib"></bibtex>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 p-3 bg-dark text-white bar">
+                <include-html path="header.html"></include-html>
+            </div>
+            <div class="col-lg-8 p-3 content">
+                <div class="row mt-5">
+                    <div class="mt-5">
+                        <h1>GitHub Multiple Accounts via SSH</h1>
+
+                        <p>
+                            This setup allows using multiple GitHub accounts on the same machine without
+                            constantly switching credentials.
+                        </p>
+
+                        <h2>SSH Configuration</h2>
+
+                        <p>File: <code>~/.ssh/config</code></p>
+
+                        <pre>
+Host github.com-NAME_ONE
+  HostName github.com
+  User git
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/YOUR_KEY_FOR_ACCOUNT_ONE
+  IdentitiesOnly yes
+
+Host github.com-NAME_TWO
+  HostName github.com
+  User git
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/YOUR_KEY_FOR_ACCOUNT_TWO
+  IdentitiesOnly yes
+</pre>
+
+                        <p>
+                            Each <code>Host</code> entry creates a local alias for GitHub. SSH uses the
+                            specified key whenever that alias is used.
+                        </p>
+
+                        <h2>Adding Keys to the SSH Agent</h2>
+
+                        <p>Add the SSH keys to the SSH agent.</p>
+
+                        <pre>
+ssh-add ~/.ssh/YOUR_KEY_FOR_ACCOUNT_ONE
+</pre>
+
+                        <pre>
+ssh-add ~/.ssh/YOUR_KEY_FOR_ACCOUNT_TWO
+</pre>
+
+                        <p>Verify which keys are currently loaded:</p>
+
+                        <pre>
+ssh-add -l
+</pre>
+
+                        <h2>Testing Authentication</h2>
+
+                        <p>Test whether the configuration is working correctly.</p>
+
+                        <pre>
+ssh -T git@github.com-NAME_ONE
+</pre>
+
+                        <pre>
+ssh -T git@github.com-NAME_TWO
+</pre>
+
+                        <p>
+                            GitHub should respond with the username associated with the corresponding SSH key.
+                        </p>
+
+                        <h2>Repository Setup</h2>
+
+                        <p>
+                            When cloning repositories, use the correct host alias defined in the SSH config.
+                        </p>
+
+                        <p>For account one:</p>
+
+                        <pre>
+git clone git@github.com-NAME_ONE:username/repository.git
+</pre>
+
+                        <p>For account two:</p>
+
+                        <pre>
+git clone git@github.com-NAME_TWO:username/repository.git
+</pre>
+
+                        <p>
+                            Existing repositories can be updated using:
+                        </p>
+
+                        <pre>
+git remote set-url origin git@github.com-NAME_ONE:username/repository.git
+</pre>
+
+                        <h2>Troubleshooting</h2>
+
+                        <h3>Authorization Error</h3>
+
+                        <p>
+                            This is usually caused by SSH not having the correct key loaded.
+                        </p>
+
+                        <p>1. Check which keys are loaded:</p>
+
+                        <pre>
+ssh-add -l
+</pre>
+
+                        <p>2. Add the missing key:</p>
+
+                        <pre>
+ssh-add ~/.ssh/YOUR_KEY
+</pre>
+
+                        <p>3. Test authentication again:</p>
+
+                        <pre>
+ssh -T git@github.com-NAME_ONE
+</pre>
+
+                        <h3>See Exactly Which Key SSH Uses</h3>
+
+                        <pre>
+ssh -Tvvv git@github.com-NAME_ONE
+</pre>
+
+                        <p>Look for output similar to:</p>
+
+                        <pre>
+Offering public key: ~/.ssh/YOUR_SSH_KEY
+</pre>
+
+                        <p>
+                            This shows which key SSH is attempting to use for authentication.
+                        </p>
+
+                        <div class="note">
+                            If a repository uses:
+
+                            <code>[git@github.com](mailto:git@github.com):user/repository.git</code>
+
+                            instead of one of your configured aliases, SSH will bypass your custom host
+                            configuration and may authenticate with the wrong GitHub account.
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 p-3 bg-dark text-white text-center">
+            <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                href="/impressum.html">Impressum (German)</a>
+        </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript" src="assets/js/html-include.js"></script>
+<script>
+    var fname = "jan";
+    var lname = "tolsdorf";
+    var domain = "gwu.edu";
+    var emaillink = document.getElementById("emaillink");
+    emaillink.text = `${fname}.${lname}@${domain}`;
+    emaillink.href = `mailto:${fname}.${lname}@${domain}`;
+    var emaillink = document.getElementById("emaillink2");
+    emaillink.text = `${fname}.${lname}@${domain}`;
+    emaillink.href = `mailto:${fname}.${lname}@${domain}`;
+</script>
+
+</html>
