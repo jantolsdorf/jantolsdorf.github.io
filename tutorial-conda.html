@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jan Tolsdorf</title>
+    <meta name="description" content="Jan Tolsdorf">
+    <meta name="author" content="Jan Tolsdorf @">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="assets/js/bibtex-js.js"></script>
+    <bibtex src="bibliography.bib"></bibtex>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 p-3 bg-dark text-white bar">
+                <include-html path="header.html"></include-html>
+            </div>
+            <div class="col-lg-8 p-3 content">
+                <div class="row mt-5">
+                    <div class="mt-5">
+                        <h1>Conda + conda-forge + Jupyter + VS Code Setup</h1>
+
+                        <div class="section">
+                            <h2>Why conda-forge (and why not default Anaconda)?</h2>
+
+                            <p>
+                                Conda itself is free, but package sources matter. The default Anaconda channel includes
+                                packages tied to commercial licensing terms in some environments.
+                            </p>
+
+                            <p>
+                                <b>conda-forge</b> is a community-maintained package ecosystem that is:
+                            </p>
+
+                            <ul>
+                                <li>Fully open-source</li>
+                                <li>Widely used in scientific computing</li>
+                                <li>More up-to-date than default channels</li>
+                                <li>Safe for corporate and commercial use without licensing concerns</li>
+                            </ul>
+
+                            <p class="note">
+                                Recommended setup: Miniforge + conda-forge only
+                            </p>
+                        </div>
+
+                        <div class="section">
+                            <h2>1. Install and Configure Miniforge (one time setup)</h2>
+                            <p>Note: You have to do this only once; if you already have Miniconda or Anaconda installed,
+                                you can skip this step.</p>
+                            <p>
+                                Miniforge is a minimal Conda installer configured to use conda-forge by default.</p>
+                            <p>
+                                Download via this GitHub repository: <a
+                                    href='https://github.com/conda-forge/miniforge#install'>https://github.com/conda-forge/miniforge#install</a><br>
+                            </p>
+
+                            <p>After installation, verify:</p>
+
+                            <pre><code>conda --version</code></pre>
+
+                            <p>Initialize shell integration:</p>
+
+                            <pre><code>conda init</code></pre>
+
+                            <p>Check current channels:</p>
+
+                            <pre><code>conda config --show channels</code></pre>
+
+                            <p>Force conda-forge priority:</p>
+
+                            <pre><code>conda config --add channels conda-forge
+conda config --set channel_priority strict</code></pre>
+
+                            <p>
+                                This ensures all packages come from conda-forge and avoids mixing ecosystems.
+                            </p>
+                        </div>
+
+                        <div class="section">
+                            <h2>2. Create a Jupyter Notebook Environment</h2>
+
+                            <p>Create environment:</p>
+
+                            <pre><code>conda create -n YOUR_PROJECT_NAME python=3.12 jupyterlab ipykernel</code></pre>
+
+                            <p>Activate it:</p>
+
+                            <pre><code>conda activate YOUR_PROJECT_NAME</code></pre>
+
+                            <p>Optional kernel registration:</p>
+
+                            <pre><code>python -m ipykernel install --user --name YOUR_PROJECT_NAME --display-name "Python (notebook)"</code></pre>
+
+                            <p>Start Jupyter:</p>
+
+                            <pre><code>jupyter lab</code></pre>
+                        </div>
+
+                        <div class="section">
+                            <h2>3. Use Conda Environment in Codium (or VS Code)</h2>
+                            <p>Note: Codium is the open source version of VS Code. It works the same way as VS Code.</p>
+
+                            <p>
+                                Install Codium/ VS Code extensions:
+                            </p>
+
+                            <ul>
+                                <li>Python (Microsoft)
+                                </li>
+                                <li>Jupyter (Microsoft)</li>
+                            </ul>
+
+                            <p>Open project folder:</p>
+
+                            <pre><code>codium .</code> (if Codium) or <code>code .</code> (if VS Code)</pre>
+
+                            <p>Select interpreter in Codium/ VS Code:</p>
+
+                            <ul>
+                                <li>Open Codium or VS Code</li>
+                                <li>Open Command Palette by pressing the following keys:
+                                    <ul>
+                                        <li>Ctrl + Shift + P (Windows, Linux)</li>
+                                        <li>Command + Shift + P (MacOS)</li>
+                                    </ul>
+                                <li>From dropdown, select <code>Python: Select Interpreter</code></li>
+                                <li>From dropdown, select <code>Python x.xx.xx (YOUR_PROJECT_NAME) Conda</code></li>
+                            </ul>
+
+                            <p>Verify inside terminal:</p>
+
+                            <pre><code>conda activate notebook
+                                python --version</code></pre>
+                        </div>
+                        <h2>4. Export Environment for Reproducibility</h2>
+
+                        <p>
+                            Once your environment is stable, you can export it to a YAML file so it can be recreated
+                            exactly on another machine.
+                        </p>
+
+                        <p>
+                            This ensures reproducibility by capturing all installed packages and versions.
+                        </p>
+
+                        <p>Export only manually installed dependencies (recommended):</p>
+
+                        <pre><code>conda env export --from-history &gt; environment.yml</code></pre>
+
+                        <p>This produces a clean, minimal file like:</p>
+
+                        <pre><code>name: notebook
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - jupyterlab</code></pre>
+
+                        <p>To recreate the environment elsewhere:</p>
+
+                        <pre><code>conda env create -f environment.yml</code></pre>
+
+                        <p>
+                            For stricter reproducibility (including exact versions), use:
+                        </p>
+
+                        <pre><code>conda env export &gt; environment-full.yml</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 p-3 bg-dark text-white text-center">
+            <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                href="/impressum.html">Impressum (German)</a>
+        </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript" src="assets/js/html-include.js"></script>
+<script>
+    var fname = "jan";
+    var lname = "tolsdorf";
+    var domain = "gwu.edu";
+    var emaillink = document.getElementById("emaillink");
+    emaillink.text = `${fname}.${lname}@${domain}`;
+    emaillink.href = `mailto:${fname}.${lname}@${domain}`;
+    var emaillink = document.getElementById("emaillink2");
+    emaillink.text = `${fname}.${lname}@${domain}`;
+    emaillink.href = `mailto:${fname}.${lname}@${domain}`;
+</script>
+
+</html>
