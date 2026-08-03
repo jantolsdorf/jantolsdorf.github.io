@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jan Tolsdorf</title>
+    <meta name="description" content="Jan Tolsdorf">
+    <meta name="author" content="Jan Tolsdorf @">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bibtex-js.js"></script>
+    <bibtex src="../bibliography.bib"></bibtex>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 p-3 bg-dark text-white bar">
+                <include-html path="../header.html"></include-html>
+            </div>
+            <div class="col-lg-8 p-3 content">
+                <div class="row mt-5">
+                    <div class="mt-5">
+                        <h2>Are My Participants' Privacy Concerns Really High? A Tutorial on How to Interpret IUIPC8 scores</h2>
+
+                        <p>Imagine you surveyed participants about their privacy concerns and they scored an
+                        average of 6.2 on a 7-point scale. Sounds high, right? In this post, we show why this
+                        intuition can be misleading and how to properly judge whether a score is
+                        actually "high."</p>
+
+                        <p>As an example, we use the scale <q>Internet Users' Information Privacy
+                        Concerns</q> (IUIPC) by <a href="https://doi.org/10.1287/isre.1040.0032"
+                        target="_blank">[Malhotra et al., 2004]</a>, a widely used questionnaire that measures
+                        online privacy concern across multiple items rated on a 7-point-Likert-Scale. We first
+                        demonstrate that the same numeric score can be "average" or "high" depending on how it
+                        was computed (item average vs. factor score) and which reference group it is compared
+                        against. We then pool raw data from several published studies to build reference
+                        distributions that you can use to put your own IUIPC scores into perspective.</p>
+
+                        <h3>Absolute scores have no meaning</h3>
+
+                        <p>The IUIPC items are rated from 1 = strongly disagree to 7 = strongly agree. Suppose
+                        participants in a study score an average of 6.2. Considering a 7-point scale, we might be
+                        tempted to write something like this: <q>Overall, our participants had high privacy
+                        concerns.</q></p>
+
+                        <p>But is 6.2 actually high? (Spoiler: probably not.)</p>
+
+                        <p>The key point: scores on scales like the IUIPC are <i>relative</i>. A score only has
+                        meaning when it is compared to other scores.</p>
+
+                        <h3>The score depends on how it is calculated</h3>
+
+                        <p>Before we can even think about comparing scores, we face a basic challenge: how should
+                        the IUIPC be scored? The original developers treated it as a multi-factor construct
+                        estimated with confirmatory factor analysis (CFA). Many applied papers, however, simply
+                        average the item responses. These two approaches lead to different absolute values and
+                        spreads.</p>
+
+                        <h3>Example reference statistic</h3>
+
+                        <p>In this particular example, we focus on the <a href="https://doi.org/10.2478/popets-2021-0026">IUIPC-8 (Groß, PETS 2021)</a>, a
+                        version with only eight items instead of ten as in the original IUIPC. The data is taken
+                        from <a href="https://github.com/das-group/CAuthN-Study-Dataset/">[Dehling et al., PETS
+                        2024]</a>. The data includes responses from N = 830 U.S.-based participants.</p>
+
+                        <p>For each participant, we calculate an average score and a factor score, depicted in
+                        the two charts below. Factor scores were estimated via CFA using the regression method
+                        and rescaled to the 1&ndash;7 item metric to make them comparable to average scores.
+                        <!-- TODO: verify this description matches how the factor scores were actually
+                        computed/rescaled -->
+                        The distributions of the two types of IUIPC-8 scores clearly differ. Comparing IUIPC
+                        scores across studies is thus a bad idea if one study uses averages and another study
+                        uses factor scores.</p>
+
+                        <p>The charts show that the median average IUIPC-8 score is 6.25 and the median factor
+                        score is 4.84; that is, 50% of participants score at or above these values,
+                        respectively.</p>
+
+                        <h3>6.2 is below the median average score but above the median factor score</h3>
+
+                        <p>These charts allow us to answer our original question: Are my participants' privacy
+                        concerns really high? We can now make the following statements:</p>
+
+                        <ul>
+                            <li>If 6.2 is an average score: No. 6.2 falls at approximately the 50th percentile of
+                                average IUIPC-8 scores in the reference group, meaning it is equal to or higher
+                                than the scores of about 50% of participants in the study by Dehling et al. In
+                                other words, the score is about average, not high.</li>
+                            <li>If 6.2 is a factor score: Yes. 6.2 falls at approximately the 80th percentile of
+                                factor IUIPC-8 scores in the reference group, meaning it is equal to or higher
+                                than the scores of about 80% of participants in the study by Dehling et al. Put
+                                differently, only about 20% of participants scored at or above 6.2.</li>
+                        </ul>
+
+                        <div class="row">
+                            <div class="my-4 col-lg-6">
+                                <iframe src="iuipc8_average.html" width="100%" height="500"
+                                    style="border:none; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:12px;">
+                                </iframe>
+                                Use this chart if your IUIPC-8 score is an average over all eight items, i.e.,
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mrow>
+                                        <mi>IUIPC8</mi>
+                                        <mo>=</mo>
+                                        <mfrac>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>Item</mi>
+                                                    <mn>1</mn>
+                                                </msub>
+                                                <mo>+</mo>
+                                                <msub>
+                                                    <mi>Item</mi>
+                                                    <mn>2</mn>
+                                                </msub>
+                                                <mo>+</mo>
+                                                <mo>...</mo>
+                                                <mo>+</mo>
+                                                <msub>
+                                                    <mi>Item</mi>
+                                                    <mn>8</mn>
+                                                </msub>
+                                            </mrow>
+                                            <mn>8</mn>
+                                        </mfrac>
+                                    </mrow>
+                                </math>
+                            </div>
+                            <div class="my-4 col-lg-6">
+                                <iframe src="iuipc8_factor_score.html" width="100%" height="500"
+                                    style="border:none; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:12px;">
+                                </iframe>
+                                Use this chart if your IUIPC-8 score is a factor score, calculated using CFA and
+                                the regression method (rescaled to the 1&ndash;7 metric as described above).
+                            </div>
+                        </div>
+
+
+                        <h2>Comparing and Generalizing Across Publications</h2>
+
+                        <p>So far, we compared our hypothetical score of 6.2 against a single reference study.
+                        But a single sample is just that: one sample, with its own recruitment platform, time of
+                        data collection, and demographic makeup. To get a more robust sense of what "typical"
+                        IUIPC scores look like, we can pool data from several publications that shared their raw
+                        data.</p>
+
+                        <h3>The data</h3>
+
+                        <p>We combined participant-level IUIPC-8 responses from five samples published across
+                        four papers:
+                        <!-- TODO: state which paper contributed two samples --></p>
+
+                        <ul>
+                            <li><a href="https://github.com/das-group/CAuthN-Study-Dataset/" target="_blank">Dehling et al., PETS
+                                    2024 (N=830 participants)</a></li>
+                            <li><a href="https://osf.io/6dmgb/" target="_blank">Windl et al., MHCI 2024 (N=120 participants)</a></li>
+                            <li><a href="https://osf.io/mqwjr/" target="_blank">Zufferey et al., PETS 2025 (N=422 participants)</a></li>
+                            <li><a href="https://osf.io/x46aj/" target="_blank">Niksirat et al., USENIX Security 2025 (N=463 participants, N=478 participants)</a></li>
+                        </ul>
+
+                        <p>Combining raw data from different papers requires some harmonization work:
+                        studies label their items differently (e.g., <code>IUIPC_4</code> vs.
+                        <code>QIUIPC1.IUI01.</code>), some order the items differently,
+                        some store responses as text labels ("Strongly agree") rather than numeric values,
+                        and some only share a precomputed mean score instead of item-level responses.
+                        We therefore mapped all items onto a common IUIPC-8 item order, converted textual Likert
+                        responses to their numeric 1&ndash;7 values,
+                        and recoded demographic variables (gender, country of residence) into a shared format.</p>
+
+                        <h3>Why IUIPC-8 average scores?</h3>
+
+                        <p>For this comparison, we use the IUIPC-8 and simple average scores (the mean over all
+                        eight items) rather than factor scores. This is a pragmatic choice: not all datasets
+                        include item-level responses (some papers only report a participant's mean score),
+                        so factor scores cannot be computed consistently across all samples.
+                        Averages, in contrast, can be harmonized across every dataset and are also what most
+                        applied papers report in practice. Keep in mind the caveat we have discussed above: these
+                        reference distributions are only valid for comparison if your own score is also a simple
+                        item average.</p>
+
+                        <h3>Scores per paper</h3>
+
+                        <p>The chart below shows the cumulative distribution of average IUIPC-8 scores separately
+                        for each sample (dashed lines mark each sample's median). While the general shape is
+                        similar across studies, the distributions do shift noticeably: the same score can
+                        fall into quite different percentiles depending on which study you compare against. This
+                        is exactly why relying on a single reference sample can be misleading.</p>
+
+                        <div class="my-4">
+                            <iframe src="iuipc8_cdf_by_study.html" width="100%" height="500"
+                                style="border:none; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:12px;">
+                            </iframe>
+                        </div>
+
+                        <h3>Overall distribution</h3>
+
+                        <p>Pooling all participants into one distribution gives us a broader reference than any
+                        single study. You can use this chart to look up the percentile of
+                        your own average IUIPC-8 score across all pooled samples from the four studies.</p>
+
+                        <div class="my-4">
+                            <iframe src="iuipc8_cdf_all.html" width="100%" height="500"
+                                style="border:none; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:12px;">
+                            </iframe>
+                        </div>
+
+                        <h3>US vs. non-US participants</h3>
+
+                        <p>Privacy concerns are known to vary across cultural and regulatory contexts.
+                        Since the pooled data contains participants from different countries, we split the
+                        distribution into US-based and non-US-based participants. If your sample was recruited in
+                        a specific region, the matching curve is the more appropriate reference.</p>
+
+                        <div class="my-4">
+                            <iframe src="iuipc8_cdf_by_country.html" width="100%" height="500"
+                                style="border:none; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:12px;">
+                            </iframe>
+                        </div>
+
+                        <h3>Takeaway</h3>
+
+                        <p>Whether a score is "high" depends not only on how it was computed (average vs. factor
+                        score), but also on which population it is compared against. Pooling multiple published
+                        datasets gives a more stable reference distribution. Finally, keep in mind that all pooled samples stem
+                        from online panels, so the reference distributions reflect that population rather than
+                        internet users in general.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 p-3 bg-dark text-white text-center">
+                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                    href="/impressum.html">Impressum (German)</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../assets/js/html-include.js"></script>
+<script>
+    var fname = "jan";
+    var lname = "tolsdorf";
+    var domain = "gwu.edu";
+    var emaillink = document.getElementById("emaillink");
+    emaillink.text = `${fname}.${lname}@${domain}`;
+    emaillink.href = `mailto:${fname}.${lname}@${domain}`;
+    var emaillink = document.getElementById("emaillink2");
+    emaillink.text = `${fname}.${lname}@${domain}`;
+    emaillink.href = `mailto:${fname}.${lname}@${domain}`;
+</script>
+
+</html>
